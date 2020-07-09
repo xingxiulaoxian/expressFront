@@ -1,4 +1,11 @@
-'use strict';
+/*
+ * @Description: 功能描述
+ * @Author: yy
+ * @Date: 2020-07-09 14:03:12
+ * @LastEditors: yy
+ * @LastEditTime: 2020-07-09 16:01:55
+ */ 
+
 
 const path = require('path');
 const fs = require('fs');
@@ -52,7 +59,7 @@ const resolveModule = (resolveFn, filePath) => {
 module.exports = {
   dotenv: resolveApp('.env'),
   appPath: resolveApp('.'),
-  appBuild: resolveApp('build'),
+  appBuild: resolveApp('build/public/'),
   appPublic: resolveApp('public'),
   appHtml: resolveApp('public/index.html'),
   appIndexJs: resolveModule(resolveApp, 'src/index'),
@@ -65,6 +72,11 @@ module.exports = {
   proxySetup: resolveApp('src/setupProxy.js'),
   appNodeModules: resolveApp('node_modules'),
   publicUrlOrPath,
+
+  // server
+  serverConfig: resolveApp('server/config/'),
+  serverAppIndex: resolveApp('server/app.js'),
+  serverBuild: resolveApp('build/'),
 };
 
 

@@ -1,4 +1,4 @@
-'use strict';
+
 
 // Do this as the first thing so that any code reading it knows the right env.
 process.env.BABEL_ENV = 'production';
@@ -26,6 +26,10 @@ const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
 const printHostingInstructions = require('react-dev-utils/printHostingInstructions');
 const FileSizeReporter = require('react-dev-utils/FileSizeReporter');
 const printBuildError = require('react-dev-utils/printBuildError');
+
+// server
+const serverConfig = require('../config/server.webpack.config')
+
 
 const measureFileSizesBeforeBuild =
   FileSizeReporter.measureFileSizesBeforeBuild;
@@ -144,7 +148,9 @@ function build(previousFileSizes) {
 
   console.log('Creating an optimized production build...');
 
-  const compiler = webpack(config);
+  // const compiler = webpack(config);
+  // const compiler = webpack([serverConfig]);
+  const compiler = webpack([serverConfig, config]);
   return new Promise((resolve, reject) => {
     compiler.run((err, stats) => {
       let messages;
