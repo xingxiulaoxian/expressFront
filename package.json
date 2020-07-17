@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^7.1.2",
     "@typescript-eslint/eslint-plugin": "^2.10.0",
     "@typescript-eslint/parser": "^2.10.0",
+    "antd": "^4.4.2",
     "babel-eslint": "10.1.0",
     "babel-jest": "^24.9.0",
     "babel-loader": "8.1.0",
@@ -140,9 +141,22 @@
   "babel": {
     "presets": [
       "react-app"
+    ],
+    "plugins": [
+      [
+        "import",
+        {
+          "libraryName": "antd",
+          "libraryDirectory": "es",
+          "style": "css"
+        }
+      ]
     ]
   },
   "devDependencies": {
-    "copy-webpack-plugin": "^6.0.3"
-  }
+    "babel-plugin-import": "^1.13.0",
+    "copy-webpack-plugin": "^6.0.3",
+    "multer": "^1.4.2"
+  },
+  "proxy": "http://localhost:5000/"
 }
